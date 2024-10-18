@@ -25,7 +25,7 @@
 //       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
 //     ]
 //   }
-// })
+// })g
 import { defineConfig } from 'vitepress'
 import { set_sidebar } from './utils/auto_sidebar.mjs'
 
@@ -45,8 +45,8 @@ export default defineConfig({
     ],
     sidebar: {
       // 因为设置的doc目录 所以set_sidebar需要从docs读取, 路由是不需要配置docs路径的
-      '/vue3/': set_sidebar('docs/vue3'),
-      '/webgis/': set_sidebar('docs/webgis')
+      '/vue3/': set_sidebar('vue3'),
+      '/webgis/': set_sidebar('webgis')
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/DeanYao2014' }
