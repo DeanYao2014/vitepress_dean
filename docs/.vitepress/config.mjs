@@ -25,12 +25,12 @@
 //       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
 //     ]
 //   }
-// })g
+// })
 import { defineConfig } from 'vitepress'
 import { set_sidebar } from './utils/auto_sidebar.mjs'
 
 export default defineConfig({
-  base: '/vitepress_dean/',
+  base: '/vitepress_dean/', //通常和github的仓库名一致,对应域名;如果你使用的是 Github（或 GitLab）页面并部署到 user.github.io/repo/，请将 base 设置为 /repo/。
   title: 'Webgis之路',
   description: 'A VitePress Site I like it',
   themeConfig: {
@@ -42,11 +42,13 @@ export default defineConfig({
       ]},
       { text: 'vue3', link: '/vue3/' },
       { text: 'webgis', link: '/webgis/' },
+      { text: 'basement', link: '/basement/vitepress快速入门' },
     ],
     sidebar: {
       // 因为设置的doc目录 所以set_sidebar需要从docs读取, 路由是不需要配置docs路径的
       '/vue3/': set_sidebar('vue3'),
-      '/webgis/': set_sidebar('webgis')
+      '/webgis/': set_sidebar('webgis'),
+      '/basement/': set_sidebar('basement'),
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/DeanYao2014' }

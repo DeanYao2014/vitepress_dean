@@ -1,15 +1,46 @@
-# 忽略 node_modules 目录
-node_modules/
+# .gitignore 常见语法
+# 注释：以 # 开头的行是注释
+# 忽略目录：以 / 结尾表示目录
+# 通配符 *：匹配任意数量的字符
+# 排除模式：以 ! 开头表示不要忽略匹配的文件或目录
+# 匹配零个或多个目录: **/cache/* 表示匹配任何目录中的 cache 文件夹以及其所有内容。
 
-# 忽略日志文件
+# 忽略 Node.js 相关目录和文件
+node_modules/
+npm-debug.log
+yarn.lock
+
+# 忽略 Python 相关目录和文件
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 忽略 Django 相关目录和文件
 *.log
+db.sqlite3
+/media/
+*.sqlite3-journal
+
+# 忽略环境变量文件
+.env
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略 IDE 和编辑器相关的文件
+.vscode/
+.idea/
+
+# 忽略 Windows 文件
+desktop.ini
 
 # 忽略构建文件
-dist/
-.DS_Store
-dist
-dist-ssr
-cache
-.cache
-.temp
+**/dist/*
+**/dist-ssr/*
+**/.cache/*
+**/cache/*
+.cache.temp/
+
+# 忽略本地配置文件
 *.local
