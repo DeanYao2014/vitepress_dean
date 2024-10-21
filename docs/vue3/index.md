@@ -5,11 +5,19 @@ hello: world
 <script setup>
 import { ref } from 'vue'
 import Demo from '../../components/Demo.vue'
+import GisDemo from '../../components/GisDemo.vue'
+import ElementPlusDemo from '../../components/ElementPlusDemo.vue'
+import { ElSwitch } from 'element-plus'
 const count = ref(0)
 
 import { useData } from 'vitepress'
 
 const { page } = useData()
+
+
+
+const value1 = ref(true)
+const value2 = ref(true)
 </script>
 
 ## Markdown Content
@@ -51,6 +59,21 @@ npm install -D less
 # .styl and .stylus
 npm install -D stylus
 ```
+
+
+## webgis 迟滞
+<GisDemo />
+
+## Elementplus
+<ElementPlusDemo />
+
+  <el-switch v-model="value1" />
+  <el-switch
+    v-model="value2"
+    class="ml-2"
+    style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
+  />
+
 
 <style module>
 .button {
