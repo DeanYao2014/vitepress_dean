@@ -13,6 +13,9 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 // 导入elementplus组件-图标组件
 // import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
+// 导入arcgis 样式
+import '@arcgis/core/assets/esri/themes/light/main.css'
+
 /** @type {import('vitepress').Theme} */
 export default {
   extends: DefaultTheme,

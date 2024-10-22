@@ -10,7 +10,7 @@
 import { onMounted } from 'vue'
 import Map from '@arcgis/core/Map'
 import MapView from '@arcgis/core/views/MapView'
-import '@arcgis/core/assets/esri/themes/light/main.css'
+// import '@arcgis/core/assets/esri/themes/light/main.css'
 
 onMounted(() => {
     const map = new Map({
