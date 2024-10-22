@@ -7,7 +7,8 @@ import { ref } from 'vue'
 import Demo from '../../components/Demo.vue'
 import GisDemo from '../../components/GisDemo.vue'
 import ElementPlusDemo from '../../components/ElementPlusDemo.vue'
-import { ElSwitch } from 'element-plus'
+// import { ElSwitch } from 'element-plus'
+import { Check } from '@element-plus/icons-vue'
 const count = ref(0)
 
 import { useData } from 'vitepress'
@@ -74,6 +75,9 @@ npm install -D stylus
     style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
   />
 
+<el-icon :size="20">
+    <Check />
+</el-icon>
 
 <style module>
 .button {
