@@ -6,6 +6,8 @@
   
   <script setup>
   import { onMounted } from 'vue';
+  // import Map from '@arcgis/core/Map';
+  // import MapView from '@arcgis/core/views/MapView';
   
   onMounted(async () => {
     const [Map, MapView] = await Promise.all([

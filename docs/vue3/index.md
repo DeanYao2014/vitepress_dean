@@ -8,7 +8,7 @@ import Demo from '../../components/Demo.vue'
 import GisDemo from '../../components/GisDemo.vue'
 import ElementPlusDemo from '../../components/ElementPlusDemo.vue'
 // import { ElSwitch } from 'element-plus'
-import { Check } from '@element-plus/icons-vue'
+// import { Check } from '@element-plus/icons-vue'
 const count = ref(0)
 
 import { useData } from 'vitepress'
@@ -78,6 +78,9 @@ npm install -D stylus
 <el-icon :size="20">
     <Check />
 </el-icon>
+
+
+
 
 <style module>
 .button {
