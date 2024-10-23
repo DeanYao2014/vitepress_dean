@@ -1,9 +1,9 @@
 ## Vitepress
+
 VitePress 是一个静态站点生成器SSG, 专为构建快速、以内容为中心的站点而设计.
+
 1. Vite 驱动：即时服务器启动，始终立即反映 (<100ms) 编辑变化，无需重新加载页面。
-
 2. 内置 Markdown 扩展：frontmatter、表格、语法高亮……应有尽有。具体来说，VitePress 提供了许多用于处理代码块的高级功能，使其真正成为技术文档的理想选择。
-
 3. Vue 增强的 Markdown：每个 Markdown 页面都是 Vue 单文件组件，这要归功于 Vue 模板与 HTML 的 100% 语法兼容性。可以使用 Vue 模板语法或导入的 Vue 组件在静态内容中嵌入交互性。
 
 > VitePress 生成的网站在初次访问时提供静态 HTML，但它变成了单页应用程序（SPA）进行站点内的后续导航
@@ -15,7 +15,6 @@ VitePress 是一个静态站点生成器SSG, 专为构建快速、以内容为�
 > 动态生成路由
 > markdown扩展语法
 > frontmatter
-
 
 ## Static Site Generator SSG
 
@@ -45,11 +44,12 @@ SSR(Server-Side Rendering) 是指在服务器端渲染网页的技术,与SSG不�
 
 > 原则上只在 Vue 组件的 beforeMount 或 mounted 钩子中访问浏览器或 DOM API
 
-
 [Vitepress官方网站](https://vitepress.dev/zh/guide/getting-started)
+
 ## 安装+配置
 
 Node.js 18版本及以上
+
 ```JavaScript
 // 安装依赖
 pnpm add -D vitepress
@@ -81,7 +81,9 @@ pnpm vitepress init
 │  ○ Custom Theme
 └
 ```
+
 格式:
+
 ```
 .
 ├─ docs
@@ -96,9 +98,12 @@ pnpm vitepress init
 :::tip
 VitePress 是仅 ESM 的软件包。不要使用 require() 导入它，并确保最新的 package.json 包含 "type": "module"，或者更改相关文件的文件扩展名，例如 .vitepress/config.js 到 .mjs/.mts。更多详情请参考 Vite 故障排除指南。此外，在异步 CJS 上下文中，可以使用 await import('vitepress') 代替。
 :::
+
 ### 配置element-plus arcgis
+
 增加额外的功能
-```js 命令
+
+```js
 // 安装Element-plus icons-vue
 pnpm add element-plus
 pnpm add @element-plus/icons-vue
@@ -111,8 +116,9 @@ pnpm add @arcgis/core
 ```
 
 > 按需导入,我配置之后有问题, 只能在组件中争取的按需导入,在Markdown文件中不能使用
-> arcgis maps sdk for javscript基本上是在组件中使用,编写组件,在Markdown的setup中import该组件即可, 样式需在全局导入`import * as ElementPlusIconsVue from '@element-plus/icons-vue';`
-```js docs/theme/index.js
+> arcgis maps sdk for javscript基本上是在组件中使用,编写组件,在Markdown的setup中import该组件即可, 样式需在全局导入 `import * as ElementPlusIconsVue from '@element-plus/icons-vue';`
+
+```js
 import { defineClientConfig } from '@vuepress/client';
 // 导入element-plus icon等相关组件
 import ElementPlus from 'element-plus';
@@ -135,17 +141,66 @@ export default defineClientConfig({
 });
 ```
 
-
-
 ## 特殊语法
+
 + `:::`创建自定义容器的语法
-::: info
-info/danger/warning/info
-this is an info box.
-:::
+  ::: info
+  info/danger/warning/info
+  this is an info box.
+  :::
 
 ## config.js配置文件
+
 在 VitePress 项目中，图片文件通常保存在 public 文件夹中
 根目录下创建 public, vitepress快速入门 文件夹, img可以保存到对应的文件夹下面;
-`![1729421140335](/vitepress快速入门/1729421140335.png)`
+`![1729421140335](/image/vitepress快速入门/1729421140335.png)`
 ![1729421140335](/vitepress快速入门/1729421140335.png)
+
+
+## 路由
+
+VitePress 使用给予文件的路由. 路径和根目录有关, 默认我们一般保存在docs文件夹中, 执行
+`vitepress dev docs` 就会生成md文件的对应路由; 也可以将md保存在docs/src 某个文件夹下面,设置`srcDir:'src'` 对应生成src文件夹下对应md的路由
+
++ 根目录Project root: VitePress 将尝试寻找 `.vitepress` 特殊目录的地方
++ 源目录 source directory: 源目录是 Markdown 源文件所在的位置。默认情况下，它与项目根目录相同。`srcDir:'src'` srcDir选项相对于项目根目录解析的, 以上命令相当于从docs/src的目录下生成链接
+```text
+.                          # 项目根目录
+├─ .vitepress              # 配置目录
+└─ src                     # 源目录
+   ├─ getting-started.md
+   └─ index.md
+```
+生成的链接
+```text
+src/index.md            -->  /index.html (可以通过 / 访问)
+src/getting-started.md  -->  /getting-started.html
+```
+> 如果 VitePress 项目位于 ./docs，应该运行 `vitepress dev docs` , 以下是package.json中的配置`"docs:dev": "vitepress dev docs",`
+
+```text
+docs/index.md            -->  /index.html (可以通过 / 访问)
+docs/getting-started.md  -->  /getting-started.html
+```
+
+### 链接页面
+
++ [相对链接git入门](./git入门)
++ [`/`连接到非vitepress页面](/vitepress快速入门/1729421140335.png)
++ [`./`连接到非vitepress页面](./vitepress快速入门/1729421140335.png)
++ [` ` 连接到非vitepress页面](vitepress快速入门/1729421140335.png)
+
+`.` 相对路径, 表示从当前文件所在目录开始查找资源, 同级别目录
+`/` 绝对路径,从网站的根目录开始查找资源, 无视当前路径 `http://localhost:5173/{base}`  `config.js` 中配置 `base: '/vitepress_dean/'` 斜杠开始斜杠结尾
+` `: 相对路径,没有小时的使用`./`也是表示从当前文件所在目录开始查找,效果与`./`相同 `http://localhost:5173/vitepress_dean/basement/` 
+
+
+### 路由重写
+
+rewrites
+```js
+rewrites: {
+    'packages/:pkg/src/(.*)': ':pkg/index.md'
+}
+```
+
