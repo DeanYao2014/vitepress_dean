@@ -16,8 +16,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 导入arcgis 样式
 import '@arcgis/core/assets/esri/themes/light/main.css'
 
-import Map from '@arcgis/core/Map'
-import MapView from '@arcgis/core/views/MapView'
+// import Map from '@arcgis/core/Map'
+// import MapView from '@arcgis/core/views/MapView'
 
 /** @type {import('vitepress').Theme} */
 export default {
