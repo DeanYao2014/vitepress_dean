@@ -139,7 +139,7 @@
 
 /* Add this to your custom CSS file, e.g., docs/.vitepress/theme/index.css */
 
-table {
+/* table {
   width: 110%;
   border-collapse: collapse;
   margin: 1em 0;
@@ -181,4 +181,4 @@ th, td {
     white-space: nowrap;
     content: attr(data-label);
   }
-}
+} */
