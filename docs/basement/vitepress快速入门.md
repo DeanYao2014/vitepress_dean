@@ -156,6 +156,107 @@ export default defineClientConfig({
 `![1729421140335](/image/vitepress快速入门/1729421140335.png)`
 ![1729421140335](/vitepress快速入门/1729421140335.png)
 
+```js
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  // 设置网站的基础 URL
+  base: '/my-project/',
+
+  // 设置网站的标题
+  title: 'My VitePress Site',
+
+  // 设置网站的描述，用于 SEO 和 SNS 分享
+  description: 'A VitePress Site Example',
+
+  // 设置网站的 logo 图片路径
+  logo: '/logo.png',
+
+  themeConfig: {
+    // 配置导航栏
+    nav: [
+      { text: 'Home', link: '/' }, // 导航链接，指向首页
+      { text: 'Guide', link: '/guide/' }, // 导航链接，指向指南页面
+      {
+        text: 'Languages',
+        items: [
+          { text: 'Chinese', link: '/language/chinese/' }, // 下拉菜单，指向中文页面
+          { text: 'Japanese', link: '/language/japanese/' } // 下拉菜单，指向日文页面
+        ]
+      }
+    ],
+
+    // 配置侧边栏
+    sidebar: {
+      '/guide/': [
+        {
+          text: 'Introduction',
+          children: ['/guide/README.md', '/guide/getting-started.md'] // 侧边栏链接，指向指南介绍和入门页面
+        },
+        {
+          text: 'Advanced',
+          children: ['/guide/advanced/config.md', '/guide/advanced/theme.md'] // 侧边栏链接，指向高级配置和主题页面
+        }
+      ],
+      '/api/': [
+        '/api/README.md', // 侧边栏链接，指向 API 介绍页面
+        '/api/endpoints.md' // 侧边栏链接，指向 API 端点页面
+      ]
+    },
+
+    // 配置搜索功能
+    // search: {
+    //   maxSuggestions: 10 // 搜索建议的最大数量
+    // },
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索',
+            buttonAriaLabel: '搜索'
+          },
+          modal: {
+            noResultsText: '找不到结果',
+            resetButtonTitle: '清除查询条件',
+            footer: {
+              selectText: '选择',
+              navigateText: '切换'
+            }
+          }
+        }
+      }
+    }
+    // 配置 Algolia 搜索 
+    // algolia搜索可以和本地同时配置
+    // algolia: {
+    //   apiKey: 'YOUR_ALGOLIA_API_KEY', // Algolia 的 API 密钥
+    //   indexName: 'YOUR_INDEX_NAME' // Algolia 索引名称
+    // },
+
+    // 配置页脚内容
+    footer: {
+      message: 'Released under the MIT License.', // 页脚信息
+      copyright: 'Copyright © 2024 My Company' // 版权信息
+    }
+  },
+
+  // 配置 Markdown 渲染选项
+  markdown: {
+    lineNumbers: true, // 是否在代码块中显示行号
+    toc: { includeLevel: [1, 2, 3] }, // 配置目录包含的标题级别
+    anchor: { permalink: false }, // 配置标题锚点
+    config: (md) => {
+      md.use(require('markdown-it-footnote')) // 使用 markdown-it-footnote 插件
+    }
+  },
+
+  // 设置输出目录
+  dest: 'dist'
+})
+```
+
+
 
 ## 路由
 

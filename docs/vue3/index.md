@@ -7,6 +7,7 @@ import { ref } from 'vue'
 import Demo from '../../components/Demo.vue'
 import GisDemo from '../../components/GisDemo.vue'
 import ElementPlusDemo from '../../components/ElementPlusDemo.vue'
+import Editable from '../../components/Editable.vue'
 // import { ElSwitch } from 'element-plus'
 // import { Check } from '@element-plus/icons-vue'
 const count = ref(0)
@@ -79,7 +80,8 @@ npm install -D stylus
     <Check />
 </el-icon>
 
-
+## 测试 组件导入 表格
+<Editable />
 
 
 <style module>
