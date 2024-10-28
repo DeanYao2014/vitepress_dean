@@ -39,7 +39,15 @@ export default {
       app.component(key, component);
     }
 
+
+    // 注册全局组件
     // app.component('Map', defineComponent(Map));
     // app.component('MapView', defineComponent(MapView));
+
+    // 钩子函数
+    router.beforeEach(() => {
+      console.log(`准备从 ${from.path} 跳转到 ${to.path}`);
+      next();
+    })
   }
 }
