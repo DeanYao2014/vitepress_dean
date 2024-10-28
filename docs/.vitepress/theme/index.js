@@ -44,10 +44,10 @@ export default {
     // app.component('Map', defineComponent(Map));
     // app.component('MapView', defineComponent(MapView));
 
-    // 钩子函数
-    router.beforeEach(() => {
-      console.log(`准备从 ${from.path} 跳转到 ${to.path}`);
-      next();
-    })
+    // 钩子函数 有问题 router没有beforeEach方法
+    // router.beforeEach(() => {
+    //   console.log(`准备从 ${from.path} 跳转到 ${to.path}`);
+    //   next();
+    // })
   }
 }
