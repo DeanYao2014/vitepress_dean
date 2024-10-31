@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { set_sidebar } from './utils/auto_sidebar.mjs'
+import { set_sidebar } from './utils/auto_sidebar.js'
 // 按需导入
 // import Components from 'unplugin-vue-components/vite';
 // import AutoImport from 'unplugin-auto-import/vite';
