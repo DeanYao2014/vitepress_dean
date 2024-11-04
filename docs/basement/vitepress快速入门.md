@@ -1,6 +1,7 @@
 ## Vitepress
 
 VitePress 是一个静态站点生成器SSG, 专为构建快速、以内容为中心的站点而设计.
+> 类似的 vuepress,hexo, python得到shpinx mkdocs, react 有docusaurus
 
 1. Vite 驱动：即时服务器启动，始终立即反映 (<100ms) 编辑变化，无需重新加载页面。
 2. 内置 Markdown 扩展：frontmatter、表格、语法高亮……应有尽有。具体来说，VitePress 提供了许多用于处理代码块的高级功能，使其真正成为技术文档的理想选择。
