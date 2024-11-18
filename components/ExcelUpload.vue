@@ -144,11 +144,7 @@ const renderToMap = () => {
 
   map.addMany([pipeLayer, lineLayer]);
 
-  // 设置视图中心和缩放级别
-  view.goTo({
-    center: [120.2, 30.2], // 设置中心为模拟数据的中间点
-    zoom: 5 // 根据需要调整缩放级别
-  });
+
 };
 
   
@@ -162,7 +158,18 @@ const renderToMap = () => {
     return content
   }
   
-  let region = new FeatureLayer({
+
+  
+  onMounted(() => {
+  if (typeof window !== 'undefined') {
+    let layer_天地图_矢量标注, map, view;
+
+    layer_天地图_矢量标注 = new WebTileLayer({
+      title: '天地图_矢量标注',
+      urlTemplate: 'http://t0.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=f70cb89203d0f9e65dc27b2155b6f769'
+    });
+
+    let region = new FeatureLayer({
     url: 'http://60.190.130.110:6080/arcgis/rest/services/Lm_JSDrain_DXT/MapServer/1',
     renderer: {
       type: 'simple',
@@ -176,16 +183,6 @@ const renderToMap = () => {
       }
     }
   })
-  
-  onMounted(() => {
-  if (typeof window !== 'undefined') {
-    let layer_天地图_矢量标注, map, view;
-
-    layer_天地图_矢量标注 = new WebTileLayer({
-      title: '天地图_矢量标注',
-      urlTemplate: 'http://t0.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=f70cb89203d0f9e65dc27b2155b6f769'
-    });
-
     map = new Map({
       basemap: {
         baseLayers: [layer_天地图_矢量地图, layer_天地图_矢量标注]
@@ -198,6 +195,12 @@ const renderToMap = () => {
       map: map,
       center: [120.8, 30.8],
       zoom: 10
+    });
+
+      // 设置视图中心和缩放级别
+    view.goTo({
+      center: [120.2, 30.2], // 设置中心为模拟数据的中间点
+      zoom: 5 // 根据需要调整缩放级别
     });
   }
 });
