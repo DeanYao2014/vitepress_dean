@@ -178,29 +178,28 @@ const renderToMap = () => {
   })
   
   onMounted(() => {
-    layer_天地图_矢量地图 = new WebTileLayer({
-      title: '天地图_矢量地图',
-      urlTemplate: 'http://t0.tianditu.gov.cn/vec_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=vec&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=f70cb89203d0f9e65dc27b2155b6f769'
-    })
-  
+  if (typeof window !== 'undefined') {
+    let layer_天地图_矢量标注, map, view;
+
     layer_天地图_矢量标注 = new WebTileLayer({
       title: '天地图_矢量标注',
       urlTemplate: 'http://t0.tianditu.gov.cn/cva_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cva&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=f70cb89203d0f9e65dc27b2155b6f769'
-    })
-  
+    });
+
     map = new Map({
       basemap: {
         baseLayers: [layer_天地图_矢量地图, layer_天地图_矢量标注]
       },
       layers: [region]
-    })
-  
+    });
+
     view = new MapView({
       container: 'viewDiv',
       map: map,
       center: [120.8, 30.8],
       zoom: 10
-    })
-  })
-  </script>
+    });
+  }
+});
+</script>
   
