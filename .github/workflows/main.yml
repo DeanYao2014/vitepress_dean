@@ -9,14 +9,9 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,7 +38,7 @@ jobs:
       - name: Build with VitePress
         run: |
           pnpm run docs:build
-          ls -al docs/.vitepress/dist  # 确保目录存在
+          touch docs/.vitepress/dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
