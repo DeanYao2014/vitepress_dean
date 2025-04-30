@@ -3,23 +3,25 @@
 layout: home
 
 hero:
-  name: "学习使我快乐"
-  text: "通往webgis之路"
+  name: "给排水数据要求"
+  text: "数据质检需知"
   tagline: Just go ahead
   image:
     src: /background.png
     alt: 背景图
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 给排水入库标准
+      link: /basement/index.md
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 数据质检
+      link: /basement/index.md
 
 features:
-  - title: vue 3
-    details: 渐进式框架
-  - title: arcgis maps sdk for javscript
-    details: arcgis maps sdk for javscript can make your data unbelievable
+  - title: 给排水入库标准
+    details: 给排水入库标准是数据入库的基础
+    link: /basement/index.md
+  - title: 数据质检
+    details: 请按照要求进行数据质检
+    link: /basement/index.md
 ---

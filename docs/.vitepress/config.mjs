@@ -8,32 +8,32 @@ import { set_sidebar } from './utils/auto_sidebar.js'
 
 export default defineConfig({
   base: '/vitepress_dean/', //通常和github的仓库名一致,对应域名;如果你使用的是 Github（或 GitLab）页面并部署到 user.github.io/repo/，请将 base 设置为 /repo/。
-  title: 'Webgis之路', // html 的title meta 信息
-  description: 'A VitePress Site I like it',// meta html 的description
+  title: '入库标准', // html 的title meta 信息
+  description: '给排水入库要求',// meta html 的description
   lang: 'zh-CN',// 可选值:zh-CN、en-US、ja-JP.. meta html 的lang
+  // 关闭死链
+  ignoreDeadLinks: true,
+  // cleanUrl
+  cleanUrls: true,
   themeConfig: {
     logo: 'logo.png',// logo图片
     
     nav: [
-      { text: 'Home', items: [
-        { text: 'Home', link: '/' },
-        { text: 'Markdown Examples', link: '/markdown-examples' }
-      ]},
-      { text: 'vue3', link: '/vue3/' },
-      { text: 'webgis', link: '/webgis/' },
-      { text: 'basement', link: '/basement/vitepress快速入门' },
+      // { text: 'vue3', link: '/vue3/' },
+      // { text: 'webgis', link: '/webgis/' },
+      { text: '入库要求', link: '/basement/' },
     ],
     sidebar: {
       // 因为设置的doc目录 所以set_sidebar需要从docs读取, 路由是不需要配置docs路径的
-      '/vue3/': set_sidebar('vue3'),
-      '/webgis/': set_sidebar('webgis'),
+      // '/vue3/': set_sidebar('vue3'),
+      // '/webgis/': set_sidebar('webgis'),
       '/basement/': set_sidebar('basement'),
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/DeanYao2014' }
     ],
     footer: {
-      copyright: 'Copyright © 2019-present Evan You'
+      copyright: 'Copyright © 2019-present Dean Yao',
     },
     search: {
       provider: 'local',
