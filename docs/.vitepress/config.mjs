@@ -17,7 +17,7 @@ export default defineConfig({
   cleanUrls: true,
   themeConfig: {
     logo: 'logo.png',// logo图片
-    
+    outline: [1,4],
     nav: [
       // { text: 'vue3', link: '/vue3/' },
       // { text: 'webgis', link: '/webgis/' },
